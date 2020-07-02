@@ -1,7 +1,10 @@
 pico-8 cartridge // http://www.pico-8.com
 version 27
 __lua__
-x=62 y=60
+-- subsim
+-- by fabsh
+
+x=60 y=60
 
 function _update()
 end
