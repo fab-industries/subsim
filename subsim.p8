@@ -5,13 +5,24 @@ __lua__
 -- by fabsh
 
 x=60 y=60
+palt(1, true)
 
 function _update()
 end
 
 function _draw()
 	rectfill(0,0,127,127,1)
+ -- draw sub
 	spr(1,x,y,1,3)
+	-- draw diving sub
+	pal({[5]=13,[6]=13,[7]=13})
+ spr(1,60,80,1,3)
+ pal()
+ -- draw submerged sub
+ pal({[5]=0,[6]=0,[7]=0,[13]=0})
+ spr(1,60,100,1,3)
+ pal()
+ -- draw periscopes
 	spr(2,80,68)
 	spr(3,84,68)
 end
