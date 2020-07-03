@@ -27,6 +27,8 @@ function _init()
 	-- animate sprites
 	t,f,s=0,1,15 --tick,frame,step
 	sp={2,3} --sprites
+	-- submarine state
+	sub_dv = 1
 end
 
 function _update()
@@ -41,19 +43,37 @@ function _update()
 	-- animate sprites
 	t=(t+1)%s --forward tick
 	if (t==0) f=f%#sp+1
+	-- sub diving?
+		sub_diving()
 end
 
 function _draw()
+	-- reset invalid diving states
+		if sub_dv == 5 then
+		sub_dv = 4
+	elseif sub_dv == 0 then
+		sub_dv = 1
+	end
 	cls()	
 	rectfill(0,0,127,127,1)
-	-- draw diving sub
-	pal({[0]=12,[4]=12,[5]=12,[6]=12,[7]=12,[13]=12})
- spr(1,60,80,1,3)
- rst_pal()
+	-- draw sub at periscope depth
+ if sub_dv == 2 then	
+		pal({[0]=12,[4]=12,[5]=12,[6]=12,[7]=12,[13]=12})
+ 	spr(1,x,y,1,3)
+ 	rst_pal()
+ end
+ -- draw diving sub
+ if sub_dv == 3 then	
+		pal({[0]=3,[4]=3,[5]=3,[6]=3,[7]=3,[13]=3})
+ 	spr(1,x,y,1,3)
+ 	rst_pal()
+ end 
  -- draw submerged sub
- pal({[4]=0,[5]=0,[6]=0,[7]=0,[13]=0})
- spr(1,60,100,1,3)
- rst_pal()
+ if sub_dv == 4 then
+ 	pal({[4]=0,[5]=0,[6]=0,[7]=0,[13]=0})
+ 	spr(1,x,y,1,3)
+ 	rst_pal()
+ end
 	-- draw waves
 	for w in all(waves) do
 		pset (w.x,w.y,w.c)
@@ -62,9 +82,13 @@ function _draw()
 		pset (w.x+3,w.y,w.c)
 	end
  -- draw sub
-	spr(1,x,y,1,3)
+ if sub_dv == 1 then
+ 	spr(1,x,y,1,3)
+ end
  -- draw animated periscope
-	spr(sp[f],63,87)
+	if sub_dv == 2 then
+		spr(sp[f],x+3,y+7)
+	end
 	-- draw small merchant
 	-- 5,000 tons
 	spr(4,10,10,1,4)
@@ -80,6 +104,22 @@ function rst_pal()
 	pal()
 	palt(1, true)
 	palt(0, false)
+end
+
+function sub_diving()	
+	--[[ buttons:
+	0=left⬅️ 1=right➡️
+ 2=up⬆️ 3=down⬇️
+ 4=o🅾️ 5=x❎ ]]
+ 
+ -- dive sub
+	if (btnp(3)) then
+		sub_dv = sub_dv+1
+	end
+	-- raise sub
+	if (btnp(2)) then
+		sub_dv = sub_dv-1
+	end	
 end
 __gfx__
 00000000111111111111111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000000000000
