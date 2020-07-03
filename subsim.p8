@@ -4,7 +4,9 @@ __lua__
 -- subsim
 -- by fabsh
 
-x=60 y=80
+x=60 y=90
+id=48
+name='scherschel'
 
 function _init()
 	palt(1, true)
@@ -101,6 +103,11 @@ function _draw()
 	-- draw medium tanker
 	-- 10,000 tons
 	spr(6,30,10,1,4)
+	-- print sub id / skipper name
+	print('u',1,115,5)
+	print(id,6,115,5)
+	print('kplt',1,121,5)
+	print(name,20,121,5)
 	-- print score
 	print('score',108,114,5)
 	print('100,000t',96,121,6)
