@@ -104,16 +104,16 @@ function _draw()
 	-- 10,000 tons
 	spr(6,30,10,1,4)
 	-- print sub id / skipper name
-	print('u',1,115,5)
-	print(id,6,115,5)
-	print('kplt',1,121,5)
-	print(name,20,121,5)
+	print('u',1,116,5)
+	print(id,6,116,5)
+	print('kplt',1,122,5)
+	print(name,20,122,5)
 	-- print score
-	print('score',108,114,5)
-	print('100,000t',96,121,6)
-	spr(34,119,105)
-	spr(35,119,96)
-	spr(50,119,87)
+	print('score',108,115,5)
+	print('100,000t',96,122,6)
+	spr(34,119,106)
+	spr(35,119,97)
+	spr(50,119,88)
 end
 
 function rst_pal()
