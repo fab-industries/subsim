@@ -32,6 +32,8 @@ function _init()
 	sp2={18,19}
 	-- submarine state
 	sub_dv = 1
+	-- button lock state
+	btn_lock = 0
 end
 
 function _update()
@@ -47,7 +49,9 @@ function _update()
 	t=(t+1)%s --forward tick
 	if (t==0) f=f%#sp+1
 	-- sub diving?
-		sub_diving()
+	sub_diving()
+	-- button locked?
+	button_lock() 
 end
 
 function _draw()
@@ -128,14 +132,32 @@ function sub_diving()
  2=up⬆️ 3=down⬇️
  4=o🅾️ 5=x❎ ]]
  
- -- dive sub
-	if (btnp(3)) then
-		sub_dv = sub_dv+1
-	end
-	-- raise sub
-	if (btnp(2)) then
-		sub_dv = sub_dv-1
+ -- if buttons aren't locked
+ if btn_lock == 0 then
+ 	-- dive sub
+		if (btnp(3)) then
+			sub_dv = sub_dv+1
+			btn_lock = btn_lock+1
+		end
+		-- raise sub
+		if (btnp(2)) then
+			sub_dv = sub_dv-1
+			btn_lock = btn_lock+1
+		end
+	else
 	end	
+end
+
+function button_lock() 
+	if btn_lock > 121 then
+		-- reset counter after 4 seconds
+		btn_lock = 0	
+	elseif btn_lock > 0 then
+	 -- increase counter by one each tick
+	 btn_lock = btn_lock+1	
+	else
+	 btn_locm = 0
+ end
 end
 __gfx__
 00000000111111111111111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000000000000
