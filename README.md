@@ -4,7 +4,7 @@ Subsim is a World War II submarine simulation for the [PICO-8 console](https://w
 
 ## Credits
 
-Code & Graphics &nbsp;&nbsp;&nbsp; [**Fabian A. Scherschel**](https://fab.industries)
+Code & Graphics &nbsp;&nbsp;&nbsp; [**Fabian A. Scherschel**](https://fab.industries)  
 Music &nbsp;&nbsp;&nbsp; [**Fabian A. Scherschel**](https://fab.industries)
 
 ### Thanks
