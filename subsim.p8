@@ -3,6 +3,7 @@ version 32
 __lua__
 -- subsim
 -- by fabsh
+-- https://fab.industries
 
 x=60 y=90
 id=48
@@ -53,7 +54,7 @@ function _update()
 	-- sub diving?
 	sub_diving()
 	-- button locked?
-	button_lock() 
+	button_lock()
 end
 
 function _draw()
@@ -63,20 +64,20 @@ function _draw()
 	elseif sub_dv == 0 then
 		sub_dv = 1
 	end
-	cls()	
+	cls()
 	rectfill(0,0,127,127,1)
 	-- draw sub at periscope depth
- if sub_dv == 2 then	
+ if sub_dv == 2 then
 		pal({[0]=12,[4]=12,[5]=12,[6]=12,[7]=12,[13]=12})
  	spr(1,x,y,1,3)
  	rst_pal()
  end
  -- draw diving sub
- if sub_dv == 3 then	
+ if sub_dv == 3 then
 		pal({[0]=3,[4]=3,[5]=3,[6]=3,[7]=3,[13]=3})
  	spr(1,x,y,1,3)
  	rst_pal()
- end 
+ end
  -- draw submerged sub
  if sub_dv == 4 then
  	pal({[4]=0,[5]=0,[6]=0,[7]=0,[13]=0})
@@ -128,12 +129,12 @@ function rst_pal()
 	palt(0, false)
 end
 
-function sub_diving()	
+function sub_diving()
 	--[[ buttons:
 	0=left⬅️ 1=right➡️
  2=up⬆️ 3=down⬇️
  4=o🅾️ 5=x❎ ]]
- 
+
  -- if buttons aren't locked
  if btn_lock == 0 then
  	-- dive sub
@@ -147,16 +148,16 @@ function sub_diving()
 			btn_lock = btn_lock+1
 		end
 	else
-	end	
+	end
 end
 
-function button_lock() 
+function button_lock()
 	if btn_lock > 121 then
 		-- reset counter after 4 seconds
-		btn_lock = 0	
+		btn_lock = 0
 	elseif btn_lock > 0 then
 	 -- increase counter by one each tick
-	 btn_lock = btn_lock+1	
+	 btn_lock = btn_lock+1
 	else
 	 btn_locm = 0
  end
@@ -200,4 +201,3 @@ __sfx__
 810f000000702007022d7622d71200702007020070200702007020070200702007020070200702007020070200702007020070200702007020070200702007020070200702007020070200702007020070200702
 __music__
 03 00010244
-
