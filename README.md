@@ -9,8 +9,9 @@ Music: [**Fabian A. Scherschel**](https://fab.industries)
 
 ### Thanks
 
-[**Paul Nicholas**](https://forum.clockworkpi.com/t/pico-8-gamedev-2-stars-space-tutorial/2455)  
-[**Dylan Bennett**](https://mboffin.itch.io/pico8-simple-animation)
+[**Paul Nicholas**](https://www.liquidream.co.uk)  
+[**Dylan Bennett**](https://twitter.com/MBoffin)  
+[**Clemens Gleich**](https://www.mojomag.de/)
 
 ### Special Thanks
 
