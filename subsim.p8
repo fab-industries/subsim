@@ -101,15 +101,10 @@ function _draw()
 	if sub_dv == 2 then
 		spr(sp[f],x+3,y+7)
 	end
-	-- draw small merchant
-	-- 5,000 tons
-	spr(4,10,10,1,4)
-	-- draw medium merchant
-	-- 10,000 tons
-	spr(5,20,10,1,4)
-	-- draw medium tanker
-	-- 10,000 tons
-	spr(6,30,10,1,4)
+
+-- draw ships
+spr_ship(3)
+
 	-- print sub id / skipper name
 	print('u',1,116,5)
 	print(id,6,116,5)
@@ -162,6 +157,24 @@ function button_lock()
 	 btn_locm = 0
  end
 end
+
+function spr_ship(shp_id)
+ if shp_id == 1 then
+	 -- draw small merchant
+	 -- 5,000 tons
+	 spr(4,10,10,1,4)
+	elseif shp_id == 2 then
+	 -- draw medium merchant
+	 -- 10,000 tons
+	 spr(5,10,10,1,4)
+ elseif shp_id == 3 then
+	 -- draw medium tanker
+	 -- 10,000 tons
+	 spr(6,10,10,1,4)
+	else
+	end
+end
+
 __gfx__
 00000000111111111111111111111111111111111111111111111111111661111116611111111111111111111111111111156111111111110000000000000000
 00000000111111111111111111111111111111111116611111166111116556111166661111111111111111111111111116157161111111110000000000000000
@@ -201,3 +214,4 @@ __sfx__
 810f000000702007022d7622d71200702007020070200702007020070200702007020070200702007020070200702007020070200702007020070200702007020070200702007020070200702007020070200702
 __music__
 03 00010244
+
